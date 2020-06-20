@@ -10,15 +10,15 @@
                     <a asp-controller="Post"
                        asp-action="Create"
                        asp-route-id=@Model.Forum.Id class="btn btn-newPost">
-                        Создать 
+                        Предложить идею / Обозначить проблему 
                     </a>
                 </span>
             }
             <form asp-controller="Forum" asp-action="Search" method="post">
                 <div class="searchForm">
-                    <input asp-for="SearchQuery" type="text" placeholder="Search..." class="searchBar" onfocus="ClearThis(this)" />
+                    <input asp-for="SearchQuery" type="text" placeholder="Поиск..." class="searchBar" onfocus="ClearThis(this)" />
                     <button type="submit" class="btn btn-forumSearch">
-                        <i class="material-icons">поиск</i>
+                        <i class="material-icons"Поиск></i>
                     </button>
                 </div>
                 <input asp-for="Forum.Id" name="id" type="hidden" />
@@ -29,7 +29,7 @@
     <div class="row sectionHeader">
         <div class="sectionDescription">
             <div class="forumLogo" style="background-image: url(@Model.Forum.ImageUrl)"></div>
-            <p>Welcome to the @Model.Forum.Name forum. Please keep posts friendly</p>
+            <p>Добро пожаловать ветку @Model.Forum.Name </p>
             @if (!User.Identity.IsAuthenticated)
             {
                 <p>

@@ -10,7 +10,7 @@
                    asp-action="Topic"
                    asp-route-id="@Model.ForumId"
                    class="btn btn-back">
-                    Вернуться  @Model.ForumName
+                    Вернуться
                 </a>
             </span>
         </div>
@@ -18,10 +18,10 @@
     <div class="row">
         <div class="createPostSection">
             <div class="authorBlock">
-               Ваше предложение, будут оценивать коллеги <strong>@Model.AuthorName</strong>
+                Ваше предложение, будут оценивать коллеги <strong>@Model.AuthorName</strong>
             </div>
             <form asp-action="AddPost" mmethod="post" id="addPostForm">
-                <div class="form-group">
+                <div class="form-group">Выберите
                     <label asp-for="Title" class="btn btn-link" style="color:green">Есть идея!</label>/<label asp-for="Title" class="btn btn-link" style="color:red"> Есть проблема!</label>
                     <input asp-for="Title" class="form-control" placeholder="Ваш заголовок.." />
                 </div>
@@ -29,14 +29,9 @@
                     <label asp-for="Content">Описание: </label>
                     <textarea asp-for="Content" class="form-control" placeholder="Опишите подробней .."></textarea>
                 </div>
+                <h6>Загрузить файл</h6>
                 <div>
-                    <h6>Загрузить файл</h6>
-                    <form method="post" enctype="multipart/form-data">
-                        <div>
-                            <input name="file" type="file" required />
-                            <button type="submit">Импорт</button>
-                        </div>
-                    </form>
+                    <button type="submit">Добавить</button>
                 </div>
                 <br>
                 <button type="submit" id="submitPostBtn" class="btn btn-submitPost">
@@ -44,6 +39,7 @@
                 </button>
                 <input asp-for="ForumId" type="hidden" />
             </form>
+           
         </div>
     </div>
 </div>
