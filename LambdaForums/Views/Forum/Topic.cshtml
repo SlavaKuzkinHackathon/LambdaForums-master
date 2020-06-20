@@ -1,0 +1,140 @@
+﻿@model LambdaForums.Models.Forum.ForumTopicModel
+
+<div class="container body-content">
+    <div class="row sectionHeader">
+        <div class="sectionHeading">
+            <span class="">@Model.Forum.Name Forum</span>
+            @if (Context.User.Identity.IsAuthenticated) /* Why put context??*/
+            {
+                <span id="headingBtn" class="float-right">
+                    <a asp-controller="Post"
+                       asp-action="Create"
+                       asp-route-id=@Model.Forum.Id class="btn btn-newPost">
+                        Create Post
+                    </a>
+                </span>
+            }
+            <form asp-controller="Forum" asp-action="Search" method="post">
+                <div class="searchForm">
+                    <input asp-for="SearchQuery" type="text" placeholder="Search..." class="searchBar" onfocus="ClearThis(this)" />
+                    <button type="submit" class="btn btn-forumSearch">
+                        <i class="material-icons">search</i>
+                    </button>
+                </div>
+                <input asp-for="Forum.Id" name="id" type="hidden" />
+            </form>
+        </div>
+    </div>
+
+    <div class="row sectionHeader">
+        <div class="sectionDescription">
+            <div class="forumLogo" style="background-image: url(@Model.Forum.ImageUrl)"></div>
+            <p>Welcome to the @Model.Forum.Name forum. Please keep posts friendly</p>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <p>
+                    <span>
+                        You must be
+                        <a asp-area="Identity" asp-page="/Account/Login">
+                            registered memeber
+                        </a>
+                        to create a new post.
+                    </span>
+                </p>
+            }
+            @if (User.IsInRole("Admin"))
+            {
+                <span id="headingBtn" class="float-right">
+                    <a asp-action="Create" asp-route-forumId="@Model.Forum.Id" class="btn btn-newPost">
+                        Edit Forum
+                    </a>
+                </span>
+
+                <span id="confirmDeleteSpan_@Model.Forum.Id" style="display:none" class="float-right">
+                    <span>Are you sure you want to delete this Forum?</span>
+                    <a asp-action="Delete" asp-route-forumId="@Model.Forum.Id" class="btn btn-danger">
+                        Yes
+                    </a>
+                    <a class="btn btn-secondary btn-deleteHover" onclick="confirmDelete(@Model.Forum.Id, false)">
+                        No
+                    </a>
+                </span>
+
+                <span id="deleteSpan_@Model.Forum.Id" class="float-right">
+                    <a class="btn btn-danger btn-deleteHover" onclick="confirmDelete(@Model.Forum.Id, true)">
+                        Delete Forum
+                    </a>
+                </span>
+            }
+        </div>
+    </div>
+
+    <div class="row forumIndexContent">
+        @if (Model.Posts.Any())
+        {
+            <table class="table table-hover table-bordered" id="forumIndexTable">
+                <tbody>
+                    @foreach(var post in Model.Posts)
+                    {
+                    <tr>
+                        <td>
+                            <div class="postData">
+                                <div class="postTitle">
+                                    <a asp-controller="Post" asp-action="Index" asp-route-id=@post.Id>@post.Title</a>
+                                </div>
+                                <div class="forumSubTitle">
+                                    <div>
+                                        <span class="postAuthor">
+                                            <a asp-controller="Profile" asp-action="Detail" asp-route-id=@post.AuthorId>
+                                                @post.AuthorName
+                                            </a>
+                                        </span>
+                                        (@post.AuthorRating) on
+                                        <span class="postDate">
+                                            @post.DatePosted
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="forumPostCount">
+                            Replies: @post.RepliesCount
+                        </td>
+                        <td>
+                            <div class="postDate">@post.DatePosted</div>
+                        </td>
+
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="noPosts">
+                <i class="material-icons md-72">question_answer</i>
+                <h3>
+                    It looks like there are no posts to be found. 
+                    Why not 
+                    <a asp-controller="Post" asp-action="Create" asp-route-id=@Model.Forum.Id>
+                        <span>Post</span>
+                    </a> 
+                    Something?
+                </h3>
+            </div>
+        }
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        function clearThis(target) {
+            target.value = "";
+        }
+    </script>
+
+    <script src="~/js/DeleteBtnScript.js"></script>
+}
+
+
