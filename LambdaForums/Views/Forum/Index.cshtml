@@ -6,11 +6,10 @@
         <div class="sectionDescription">
             <p>Добро пожаловать <strong>на корпаротивный портал Идейник</strong>. Сообщения широко классифицируются на отдельные проблемы.</p>
             <p>
-                Please read the Forum Guidelines before creating a new post.
+                Пожалуйста, ознакомьтесь с руководящими принципами форума, прежде чем создавать новый пост.
                 @if (!User.Identity.IsAuthenticated)
                 {
-                <span>Должно быть, ты ... <a asp-area="Identity" asp-page="/Account/Register">зарегистрированный член</a>чтобы создать новую запись.</span>
-                }
+            <span>Должно быть, ты ... <a asp-area="Identity" asp-page="/Account/Register">зарегистрированный член</a>чтобы создать новую запись.</span>}
             </p>
         </div>
     </div>
