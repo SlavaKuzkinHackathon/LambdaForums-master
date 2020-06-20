@@ -3,12 +3,12 @@
 <div class="container body-content">
     <div class="row sectionHeader">
         <div class="sectionHeading">
-            <span class="">Search Results for: @Model.SearchQuery Forum</span>
+            <span class="">Результаты поиска для: @Model.SearchQuery Ветка</span>
             <form asp-controller="Search" asp-action="Search" method="post">
                 <div class="searchForm">
                     <input asp-for="SearchQuery" type="text" placeholder="Search..." class="searchBar" onfocus="ClearThis(this)" />
                     <button type="submit" class="btn btn-forumSearch">
-                        <i class="material-icons">search</i>
+                        <i class="material-icons"поиск</i>
                     </button>
                 </div>
             </form>
@@ -33,12 +33,12 @@
                                     </div>
                                     <div class="forumSubTitle">
                                         <div>
-                                            by:
+                                            около :
                                             <span class="postAuthor">
                                                 <a asp-controller="Profile" asp-action="Detail" asp-route-id=@post.AuthorId>
                                                     @post.AuthorName
                                                 </a>
-                                                (@post.AuthorRating) on
+                                                (@post.AuthorRating) на
                                             </span>
                                             in:
                                             <span class="postForum">
@@ -62,9 +62,9 @@
         else
         {
             <div class="noPosts">
-                <i class="material-icons md-72">question_answer</i>
+                <i class="material-icons md-72">вопрос-ответ</i>
                 <h3>
-                    No search results found for @Model.SearchQuery<br/>
+                    Результаты поиска не найдены @Model.SearchQuery<br />
                 </h3>
             </div>
         }

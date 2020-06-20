@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - LambdaForums</title>
+    <title>@ViewData["Title"] - Идейник </title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"  />
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono&display=swap" rel="stylesheet">
@@ -19,43 +19,45 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <ul class="nav navbar-nav">
-                        <a class="navbar-brand navLogo" asp-controller="Home" asp-action="Index"></a>
-                    <li>
-                        <a class="nav-link text-dark " asp-controller="Forum" asp-action="Index">Forums</a>
-                    </li>
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle nav-link text-dark" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings</a>
-                            <ul class="dropdown-menu">
-                                <li role="separator" class="dropdown-divider"></li>
-                                <li class="dropdown-header">Profile</li>
-                                <li>
-                                    <a asp-controller="Profile" 
-                                       asp-action="Detail" 
-                                       asp-route-id="@UserManager.GetUserId(User)" class="nav-link text-dark navOption">
-                                         My Profile
-                                    </a>
-                                </li>
-                                @if (User.IsInRole("Admin"))
-                                {
-                                    <li role="separator" class="dropdown-divider"></li>
-                                    <li class="dropdown-header">Admin</li>
-                                    <li><a asp-controller="Forum" asp-action="Create" class="nav-link text-dark navOption">Create Forum</a></li>
-                                    <li><a asp-controller="Profile" asp-action="Index" class="nav-link text-dark navOption">View Users</a></li>
-                                }
-                            </ul>
-                        </li>
-                    }
-                </ul>
 
-                <ul class="navbar-nav ml-auto">
-                    <li class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                        <partial name="_LoginPartial" />
-                    </li>
-                </ul>
-            </div>
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="~/images/theme/forumLogo.png" width="130" />
+                    </a>
+
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a class="nav-link text-dark " asp-controller="Forum" asp-action="Index">Копилка Идей</a>
+                        </li>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle nav-link text-dark" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Настроойки</a>
+                    <ul class="dropdown-menu">
+                        <li role="separator" class="dropdown-divider"></li>
+                        <li class="dropdown-header">Профиль</li>
+                        <li>
+                            <a asp-controller="Profile"
+                               asp-action="Detail"
+                               asp-route-id="@UserManager.GetUserId(User)" class="nav-link text-dark navOption">
+                                Мой профиль
+                            </a>
+                        </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                <li role="separator" class="dropdown-divider"></li>
+                                    <li class="dropdown-header">Адимн</li>
+                                                        <li><a asp-controller="Forum" asp-action="Create" class="nav-link text-dark navOption">Создать ветку</a></li>
+                                                                            <li><a asp-controller="Profile" asp-action="Index" class="nav-link text-dark navOption">Просмотр пользователей</a></li>}
+                    </ul>
+                </li>}
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                            <partial name="_LoginPartial" />
+                        </li>
+                    </ul>
+</div>
         </nav>
     </header>
     <div class="container">

@@ -5,11 +5,11 @@
         <div class="sectionHeading">
             @if(Model.ForumId > 0)
             {
-            <p>Edit the @Model.Title Forum</p>
+            <p>Выбрать @Model.Title другую проблему</p>
             }
             else
             {
-                <p>Create new forum</p>
+                <p>Создать новую ветку</p>
             }
         </div>
     </div>
@@ -18,22 +18,22 @@
             <form asp-action="AddForum" method="post" id="createForumForm" enctype="multipart/form-data">
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Title">Forum Title</label>
+                    <label asp-for="Title">Описание предложений</label>
                     <input asp-for="Title" class="form-control" placeholder="Choose forum title" />
                     <span asp-validation-for="Title" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Description">Forum Description</label>
+                    <label asp-for="Description">Решение проблем</label>
                     <input asp-for="Description" class="form-control" placeholder="Write a brief description of the forum topic" />
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
                 <div id="upload">
-                    <label>Upload Forum Image</label>
+                    <label>Изменить фотогорафию </label>
                     <br />
                     <label class="btn btn-primary btn-file">
                         Browse <input asp-for="ImageUpload" typeof="file" style="display:none"/>
                     </label>
-                    <button type="submit" id="newFormBtn">Create Forum</button>
+                    <button type="submit" id="newFormBtn">Создать ветку</button>
                 </div>
                 <input asp-for="ForumId" type="hidden" />
             </form>

@@ -3,14 +3,14 @@
 <div class="container body-content">
     <div class="row sectionHeader">
         <div class="sectionHeading">
-            <span class="">@Model.Forum.Name Forum</span>
+            <span class="">@Model.Forum.Name Ветка</span>
             @if (Context.User.Identity.IsAuthenticated) /* Why put context??*/
             {
                 <span id="headingBtn" class="float-right">
                     <a asp-controller="Post"
                        asp-action="Create"
                        asp-route-id=@Model.Forum.Id class="btn btn-newPost">
-                        Create Post
+                        Создать 
                     </a>
                 </span>
             }
@@ -18,7 +18,7 @@
                 <div class="searchForm">
                     <input asp-for="SearchQuery" type="text" placeholder="Search..." class="searchBar" onfocus="ClearThis(this)" />
                     <button type="submit" class="btn btn-forumSearch">
-                        <i class="material-icons">search</i>
+                        <i class="material-icons">поиск</i>
                     </button>
                 </div>
                 <input asp-for="Forum.Id" name="id" type="hidden" />
@@ -34,11 +34,11 @@
             {
                 <p>
                     <span>
-                        You must be
+                        Обозначить проблему
                         <a asp-area="Identity" asp-page="/Account/Login">
-                            registered memeber
+                            зарегистрированный член
                         </a>
-                        to create a new post.
+                        чтобы создать новую запись.
                     </span>
                 </p>
             }
@@ -62,7 +62,7 @@
 
                 <span id="deleteSpan_@Model.Forum.Id" class="float-right">
                     <a class="btn btn-danger btn-deleteHover" onclick="confirmDelete(@Model.Forum.Id, true)">
-                        Delete Forum
+                        Удалить ветку
                     </a>
                 </span>
             }
@@ -89,7 +89,7 @@
                                                 @post.AuthorName
                                             </a>
                                         </span>
-                                        (@post.AuthorRating) on
+                                        (@post.AuthorRating) на 
                                         <span class="postDate">
                                             @post.DatePosted
                                         </span>
@@ -114,12 +114,12 @@
             <div class="noPosts">
                 <i class="material-icons md-72">question_answer</i>
                 <h3>
-                    It looks like there are no posts to be found. 
-                    Why not 
+                    Похоже, что там нет никаких постов, которые можно было бы найти.
+                    Почему нет
                     <a asp-controller="Post" asp-action="Create" asp-route-id=@Model.Forum.Id>
-                        <span>Post</span>
-                    </a> 
-                    Something?
+                        <span>Пост</span>
+                    </a>
+                    Что-нибудь?
                 </h3>
             </div>
         }

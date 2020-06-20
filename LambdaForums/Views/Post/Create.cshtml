@@ -23,14 +23,14 @@
             <form asp-action="AddPost" mmethod="post" id="addPostForm">
                 <div class="form-group">
                     <label asp-for="Title"></label>
-                    <input asp-for="Title" class="form-control" placeholder="Place your title.."/>
+                    <input asp-for="Title" class="form-control" placeholder="Разместите свой титул.."/>
                 </div>
                 <div class="form-group">
                     <label asp-for="Content"></label>
-                    <textarea asp-for="Content" class="form-control" placeholder="Place your post content.."></textarea>
+                    <textarea asp-for="Content" class="form-control" placeholder="Разместите контент своего поста.."></textarea>
                 </div>
                 <button type="submit" id="submitPostBtn" class="btn btn-submitPost">
-                    Submit Post
+                    Отправить Сообщение
                 </button>
                 <input asp-for="ForumId" type="hidden" />
             </form>

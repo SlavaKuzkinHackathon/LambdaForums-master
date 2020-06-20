@@ -4,11 +4,11 @@
     <div class="row frontPageSplash">
         <div class="col-md-6 frontPageLearn">
             <div>
-                <div class="frontPageHeading">Comment, share, and have fun</div>
-                <p>Forum intended for Sci Fi and Fantasy enthusiasts</p>
+                <div class="frontPageHeading">Опиши свою проблему</div>
+                
                 <div style="overflow-x: auto">
                     <form asp-controller="Search" asp-action="Search" method="post">
-                        <input asp-for="SearchQuery" type="text" class="homeSearch" placeholder="Search..." />
+                        <input asp-for="SearchQuery" type="text" class="homeSearch" placeholder="Ищем..." />
                     </form>
                 </div>
             </div>
@@ -17,7 +17,7 @@
         <div class="col-md-6"></div>
     </div>
     <div class="row frontPageContent">
-        <h3 id="latestPosts">Latest Posts</h3>
+        <h3 id="latestPosts">последнее сообщение</h3>
         <table class="table table-hover" id="latestPostsTable">
             <tbody>
                 @foreach(var post in Model.LatestPosts)
@@ -37,11 +37,11 @@
                                 }
                                 @if (post.RepliesCount == 0)
                                 {
-                                    <span>No Replies</span>
+                                    <span>Ни кто не ответил</span>
                                 }
                                 else
                                 {
-                                    <span>@post.RepliesCount Replies</span>
+                            <span>@post.RepliesCount Ответы</span>
                                 }
                                 <span class="postUser">
                                     <a asp-controller="Profile" asp-action="Detail" asp-route-id="@post.AuthorId">
