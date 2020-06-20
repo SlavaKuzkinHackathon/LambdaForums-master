@@ -3,14 +3,14 @@
 <div class="container body-content">
     <div class="row sectionHeader">
         <div class="sectionHeading noBorder">
-            New Post | @Model.ForumName
+            Добавляем в идейник | @Model.ForumName
             <div class="forumLogo" style="background-image:url(@Model.ForumImageUrl)"></div>
             <span id="headingBtn">
-                <a asp-controller="Forum" 
-                   asp-action="Topic" 
-                   asp-route-id="@Model.ForumId" 
+                <a asp-controller="Forum"
+                   asp-action="Topic"
+                   asp-route-id="@Model.ForumId"
                    class="btn btn-back">
-                    Back to @Model.ForumName
+                    Вернуться  @Model.ForumName
                 </a>
             </span>
         </div>
@@ -18,19 +18,29 @@
     <div class="row">
         <div class="createPostSection">
             <div class="authorBlock">
-                You're submiting this post as <strong>@Model.AuthorName</strong>
+               Ваше предложение, будут оценивать коллеги <strong>@Model.AuthorName</strong>
             </div>
             <form asp-action="AddPost" mmethod="post" id="addPostForm">
                 <div class="form-group">
-                    <label asp-for="Title"></label>
-                    <input asp-for="Title" class="form-control" placeholder="Разместите свой титул.."/>
+                    <label asp-for="Title" class="btn btn-link" style="color:green">Есть идея!</label>/<label asp-for="Title" class="btn btn-link" style="color:red"> Есть проблема!</label>
+                    <input asp-for="Title" class="form-control" placeholder="Ваш заголовок.." />
                 </div>
                 <div class="form-group">
-                    <label asp-for="Content"></label>
-                    <textarea asp-for="Content" class="form-control" placeholder="Разместите контент своего поста.."></textarea>
+                    <label asp-for="Content">Описание: </label>
+                    <textarea asp-for="Content" class="form-control" placeholder="Опишите подробней .."></textarea>
                 </div>
+                <div>
+                    <h6>Загрузить файл</h6>
+                    <form method="post" enctype="multipart/form-data">
+                        <div>
+                            <input name="file" type="file" required />
+                            <button type="submit">Импорт</button>
+                        </div>
+                    </form>
+                </div>
+                <br>
                 <button type="submit" id="submitPostBtn" class="btn btn-submitPost">
-                    Отправить Сообщение
+                    Сообщение
                 </button>
                 <input asp-for="ForumId" type="hidden" />
             </form>
