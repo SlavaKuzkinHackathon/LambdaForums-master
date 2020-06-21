@@ -3,7 +3,7 @@
 <div class="container body-content">
     <div class="row sectionHeader">
         <div class="sectionHeading">
-            <span class="">@Model.Forum.Name Ветка</span>
+            <span class="">@Model.Forum.Name </span>
             @if (Context.User.Identity.IsAuthenticated) /* Why put context??*/
             {
                 <span id="headingBtn" class="float-right">
@@ -112,7 +112,7 @@
         else
         {
             <div class="noPosts">
-                <i class="material-icons md-72">question_answer</i>
+                <i class="material-icons md-72">вопрос-ответ</i>
                 <h3>
                     Похоже, что там нет никаких постов, которые можно было бы найти.
                     Почему нет
