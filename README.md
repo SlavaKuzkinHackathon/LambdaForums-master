@@ -10,6 +10,6 @@ Asp .Net Core 3.1
 Перейдите через консоль диспетчера пакетов > к проекту  C:...........\LambdaForums-master\LambdaForums\
 выполнить команду dotnet run или нажать кнопку запуска проекта IIS Exspress
 
-Логин Администратора:ForumAdmin2
+Логин Администратора: ForumAdmin2
 
 Пароль: password
