@@ -29,16 +29,27 @@
                     <label asp-for="Content">Описание: </label>
                     <textarea asp-for="Content" class="form-control" placeholder="Опишите подробней .."></textarea>
                 </div>
-                <h6>Загрузить файл</h6>
                 <div>
-                    <button type="submit">Добавить</button>
-                </div>
-                <br>
-                <button type="submit" id="submitPostBtn" class="btn btn-submitPost">
-                    Сообщение
-                </button>
-                <input asp-for="ForumId" type="hidden" />
-            </form>
+                    <h6>Категория: </h6>
+                    <div>                  
+                        <select name="namea" id="namea" value="" class="form-control" type="text">
+                            <option value="/">Выберите</option>
+                            <option value="Общие вопросы">Общие вопросы</option>
+                            <option value="Открытие новых филиалов">Открытие новых филиалов</option>
+                            <option value="Обслуживание клиентов">Обслуживание клиентов</option>
+                        </select>
+                    </div>
+                 </div>
+                    <h6>Загрузить файл</h6>
+                    <div>
+                        <button type="submit">Добавить</button>
+                    </div>
+                    <br>
+                    <button type="submit" id="submitPostBtn" class="btn btn-submitPost">
+                        Сообщение
+                    </button>
+                    <input asp-for="ForumId" type="hidden" />
+</form>
            
         </div>
     </div>

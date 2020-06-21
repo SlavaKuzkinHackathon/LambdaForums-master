@@ -4,7 +4,7 @@
     <div class="row sectionHeader">
         <div class="sectionHeading">
             <span class="">@Model.Forum.Name </span>
-            @if (Context.User.Identity.IsAuthenticated) /* Why put context??*/
+            @if (Context.User.Identity.IsAuthenticated) 
             {
                 <span id="headingBtn" class="float-right">
                     <a asp-controller="Post"
@@ -112,14 +112,12 @@
         else
         {
             <div class="noPosts">
-                <i class="material-icons md-72">вопрос-ответ</i>
+                <i class="material-icons md-72">Предложить идею</i>
                 <h3>
-                    Похоже, что там нет никаких постов, которые можно было бы найти.
-                    Почему нет
+                    
                     <a asp-controller="Post" asp-action="Create" asp-route-id=@Model.Forum.Id>
-                        <span>Пост</span>
+                        <span>Создать пост</span>
                     </a>
-                    Что-нибудь?
                 </h3>
             </div>
         }
