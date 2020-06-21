@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,13 @@ namespace LambdaForums.Models.Reply
         public int AuthorRating { get; set; }
         public string AuthorImageUrl { get; set; }
         public bool IsAuthorAdmin { get; set; }
+
+        //cap
+        //[BindProperty]
+        //public bool IsSixHatsMode { get; set; }
+        //public string Hat { get; set; }
+
+
 
         public DateTime Created { get; set; }
         public string ReplyContent { get; set; }

@@ -4,12 +4,10 @@
     <div class="row sectionHeader">
         <div class="sectionHeading">Предложи рабочее решение</div>
         <div class="sectionDescription">
-            <p>Добро пожаловать <strong>на корпаротивный портал Идейник</strong>. Сообщения широко классифицируются на отдельные проблемы.</p>
+            <p>Добро пожаловать <strong>на корпоративный портал Идейник</strong></p>
             <p>
-                Пожалуйста, ознакомьтесь с руководящими принципами форума, прежде чем создавать новый пост.
                 @if (!User.Identity.IsAuthenticated)
-                {
-            <span>Должно быть, ты ... <a asp-area="Identity" asp-page="/Account/Register">зарегистрированный член</a>чтобы создать новую запись.</span>}
+                {}
             </p>
         </div>
     </div>
@@ -25,20 +23,20 @@
                                 <div class="forumTitle">
                                     <a asp-controller="Forum" asp-action="Topic" asp-route-id="@forum.Id">@forum.Name</a>
                                 </div>
-                                <div class="forumSubTitle">
+                                @*<div class="forumSubTitle">
                                     @if (forum.HasRecentPost)
                                     {
                                         <div class="hasRecentPost">!!!</div>
                                     }
-                                </div>
+                                </div>*@
                             </div>
                         </td>
                         <td>
                             <div class="forumPostCount">
-                                @forum.NumberOfPosts Проблемы
+                                @forum.NumberOfPosts Решение
                             </div>
                             <div class="forumMemberCount">
-                                @forum.NumberOfUsers  Пользователи
+                                @forum.NumberOfUsers  Коментарии
                             </div>
                         </td>
                         <td>
