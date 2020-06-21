@@ -42,10 +42,13 @@ namespace LambdaForums.Controllers
                 PostId = post.Id,
 
                 AuthorId = user.Id,
-                AuthorName = User.Identity.Name, 
+                AuthorName = User.Identity.Name,
                 AuthorImageUrl = user.ProfileImageUrl,
                 AuthorRating = user.Rating,
                 IsAuthorAdmin = User.IsInRole("Admin"),
+
+              
+              
 
                 ForumName = post.Forum.Title,
                 ForumId = post.Forum.Id,

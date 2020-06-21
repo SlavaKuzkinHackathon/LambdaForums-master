@@ -3,7 +3,7 @@
     <div class="container body-content">
         <div class="row sectionHeader">
             <div class="sectionHeading">
-                Reply | @Model.PostTitle
+                Оценка | @Model.PostTitle
             </div>
             <div class="forumLogo" style="background-image: url(@Model.ForumImageUrl)"></div>
             <span id="headingBtn">
@@ -33,15 +33,15 @@
                     Вы комментируете идею как @Model.AuthorName
                 </div>
                 <div>
-                    <input type="radio" name="comment-type" @*asp-for="IsSixHatsMode"*@ value="false" onchange="document.getElementById('hatsDiv').style.visibility = 'hidden';" />Обычный комментарий<br />
-                    <input type="radio" name="comment-type" @*asp-for="IsSixHatsMode"*@ value="true" onchange="document.getElementById('hatsDiv').style.visibility = 'visible';" />Метод шести шляп<br />
+                    <input type="radio" name="comment-type" @*asp-for="IsSixHatsMode"*@ value="false" onchange="document.getElementById('hatsDiv').style.visibility = 'hidden';" />  Обычный комментарий<br />
+                    <input type="radio" name="comment-type" @*asp-for="IsSixHatsMode"*@ value="true" onchange="document.getElementById('hatsDiv').style.visibility = 'visible';" />  Метод шести шляп<br />
                 </div>
                 <form asp-action="AddReply" method="post" id="addPostForm">
                     <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="form-group">
                         <label asp-for="ReplyContent">Текст комментария: </label>
                         <textarea asp-for="ReplyContent"
-                                  rows="20"
+                                  rows="17"
                                   class="form-control"
                                   placeholder="Ваш ответ..."></textarea>
                         <span asp-validation-for="ReplyContent" class="text-danger"></span>
@@ -55,13 +55,22 @@
 
             <div id="hatsDiv" class="createPostSection" style="flex:1; visibility:hidden; margin:0 0 0 4px">
                 <h2>Выберите роль:</h2>
-                <input type="radio" name="hat" @*asp-for="Hat"*@ value="red" onchange="document.getElementById('hatDescription').innerHTML = 'Вам нужно оценить идею с точки зрения эмоций, которые она у вас вызывает.';" />Красная шляпа<br />
-                <input type="radio" name="hat" @*asp-for="Hat"*@ value="white" onchange="document.getElementById('hatDescription').innerHTML = 'Вам нужно оценить идею с точки зрения фактов.';" />Белая шляпа<br />
-                <input type="radio" name="hat" @*asp-for="Hat"*@ value="yellow" onchange="document.getElementById('hatDescription').innerHTML = 'Вам нужно подчеркнуть все положительные стороны данной идеи';" />Жёлтая шляпа<br />
-                <input type="radio" name="hat" @*asp-for="Hat"*@ value="black" onchange="document.getElementById('hatDescription').innerHTML = 'Вам нужно выделить все недостатки данной идеи.';" />Чёрная шляпа<br />
-                <input type="radio" name="hat" @*asp-for="Hat"*@ value="green" onchange="document.getElementById('hatDescription').innerHTML = 'Вам нужно развить эту идею, расширив и дополнив её.';" />Зелёная шляпа<br />
-
-                <div id="hatDescription" style="margin:14px 0 0 0; color:darkgray">
+                <input type="radio" name="hat" @*asp-for="Hat"*@ value="red" onchange="document.getElementById('hatDescription').innerHTML = 'Вам нужно оценить идею с точки зрения эмоций, которые она у вас вызывает.';" />
+                <img src="~/images/theme/Красная.png" width="88" /> Красная шляпа<br />
+                <br>
+                <input type="radio" name="hat" @*asp-for="Hat"*@ value="white" onchange="document.getElementById('hatDescription').innerHTML = 'Вам нужно оценить идею с точки зрения фактов.';" />
+                <img src="~/images/theme/Серная.png" width="88" /> Белая шляпа<br />
+                <br>
+                <input type="radio" name="hat" @*asp-for="Hat"*@ value="yellow" onchange="document.getElementById('hatDescription').innerHTML = 'Вам нужно подчеркнуть все положительные стороны данной идеи';" />
+                <img src="~/images/theme/Желтая.png" width="88" />  Жёлтая шляпа<br />
+                <br>
+                <input type="radio" name="hat" @*asp-for="Hat"*@ value="black" onchange="document.getElementById('hatDescription').innerHTML = 'Вам нужно выделить все недостатки данной идеи.';" />
+                <img src="~/images/theme/Черная.png" width="88" />  Чёрная шляпа<br />
+                <br>
+                <input type="radio" name="hat" @*asp-for="Hat"*@ value="green" onchange="document.getElementById('hatDescription').innerHTML = 'Вам нужно развить эту идею, расширив и дополнив её.';" />
+                <img src="~/images/theme/Зеленая.png" width="88" />  Зелёная шляпа<br />
+                <br> 
+                <div id="hatDescription" style="margin:18px 0 0 0; color:black">
                 </div>
 
             </div>

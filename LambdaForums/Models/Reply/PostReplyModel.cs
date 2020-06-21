@@ -18,9 +18,9 @@ namespace LambdaForums.Models.Reply
         public bool IsAuthorAdmin { get; set; }
 
         //cap
-        //[BindProperty]
-        //public bool IsSixHatsMode { get; set; }
-        //public string Hat { get; set; }
+        [BindProperty]
+        public bool IsSixHatsMode { get; set; }
+        public string Hat { get; set; }
 
 
 
